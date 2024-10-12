@@ -24,8 +24,8 @@ Project Structure
 
 Secure-IT/
 │
-├── app.py                   # Main Flask application
-├── mykey.key                # Encryption key file
+├── app.py                    # Main Flask application
+├── mykey.key                 # Encryption key file
 ├── def_load_key().txt        # Function to load encryption key
 │
 ├── templates/                # HTML files for the frontend
