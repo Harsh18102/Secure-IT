@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption/Decryption</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light gray background */
+            display: flex;
+            flex-direction: column; /* Align content in a column */
+            align-items: center;
+            min-height: 100vh; /* Ensures full height of viewport */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 48px; /* Increased font size */
+            font-weight: bold;
+            text-transform: uppercase; /* Convert text to uppercase */
+            letter-spacing: 2px; /* Add letter spacing */
+            color: #0056b3; /* Dark blue color */
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px; /* Increased margin */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Prevent box-shadow from overflowing */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            padding: 40px 20px; /* Increased padding */
+            box-sizing: border-box; /* Ensure padding is included in width */
+            background-color: #fff; /* White background */
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 20px;
+            height: 270px; /* Set height to ensure consistency */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 24px; /* Increased font size */
+            color: #0056b3; /* Dark blue color */
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        textarea {
+            width: calc(100% - 20px);
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px; /* Increased font size */
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px; /* Increased font size */
+        }
+
+        /* Encryption styles */
+        .encrypt .section {
+            background-color: #66bb6a; /* Green background for encryption */
+        }
+
+        /* Decryption styles */
+        .decrypt .section {
+            background-color: #ef5350; /* Red background for decryption */
+        }
+
+        /* Button styles */
+        .encrypt button[type="submit"] {
+            background-color: #4caf50; /* Green button for encryption */
+        }
+
+        .decrypt button[type="submit"] {
+            background-color: #f44336; /* Red button for decryption */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Dark blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>File Encryption/Decryption</h1>
+
+    <div class="container">
+        <div class="left-section encrypt"> <!-- Added 'encrypt' class for encryption -->
+            <div class="section">
+                <h2>Encrypt File</h2>
+                <form action="/encrypt" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" required>
+                    <button type="submit">Encrypt File</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Encrypt Text</h2>
+                <form action="/encrypt_text" method="post">
+                    <textarea name="plaintext" rows="5" cols="40" placeholder="Enter text to encrypt" required></textarea><br>
+                    <button type="submit">Encrypt Text</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Encrypt Audio</h2>
+                <form action="/encrypt_audio" method="post" enctype="multipart/form-data">
+                    <input type="file" name="audio" accept="audio/*" required>
+                    <button type="submit">Encrypt Audio</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Encrypt Image</h2>
+                <form action="/encrypt_image" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">Encrypt Image</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-section decrypt"> <!-- Added 'decrypt' class for decryption -->
+            <div class="section">
+                <h2>Decrypt File</h2>
+                <form action="/decrypt" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" required>
+                    <input type="text" name="key" placeholder="Enter encryption key" required> <!-- Added input for key -->
+                    <button type="submit">Decrypt File</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Decrypt Text</h2>
+                <form action="/decrypt_text" method="post">
+                    <textarea name="ciphertext" rows="4" cols="40" placeholder="Enter text to decrypt" required></textarea><br>
+                    <input type="text" name="key" placeholder="Enter encryption key" required> <!-- Added input for key -->
+                    <button type="submit">Decrypt Text</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Decrypt Audio</h2>
+                <form action="/decrypt_audio" method="post" enctype="multipart/form-data">
+                    <input type="file" name="audio" accept="audio/*" required>
+                    <input type="text" name="key" placeholder="Enter encryption key" required> <!-- Added input for key -->
+                    <button type="submit">Decrypt Audio</button>
+                </form>
+            </div>
+
+            <div class="section">
+                <h2>Decrypt Image</h2>
+                <form action="/decrypt_image" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <input type="text" name="key" placeholder="Enter encryption key" required> <!-- Added input for key -->
+                    <button type="submit">Decrypt Image</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

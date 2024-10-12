@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose File Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2980b9, #2c3e50);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .option-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .option {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+        }
+
+        .option img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose Type for Encryption/Decryption</h1>
+    <div class="option-container">
+        <div class="option">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeb0zd6XZ0I1tdxGJ0_OR77A_n7u4K0Ojjl8wWB-Hdlg&s" alt="Text Icon">
+            <button type="button" onclick="text()">Text</button>
+        </div>
+        <div class="option">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNtlsA2PLKVpX7KkEZEc70ax2DDnYf7MoRkJ1Ugpqd9w&s" alt="Image Icon">
+            <button type="button" onclick="image()">Image</button>
+        </div>
+        <div class="option">
+            <img src="https://cdn-icons-png.flaticon.com/512/2425/2425541.png" alt="File Icon">
+            <button type="button" onclick="file()">Files</button>
+        </div>
+        <div class="option">
+            <img src="https://www.freeiconspng.com/thumbs/sound-off-icon/sound-off-music-mute-off-sound-speaker-volume-icon-16.png" alt="Audio Icon">
+            <button type="button" onclick="audio()">Audio</button>
+        </div>
+    </div>
+    <script>
+        function text() {
+            window.location.href = "./index4";
+        }
+        function image() {
+            window.location.href = "./index3";
+        }
+        function file() {
+            window.location.href = "./index1";
+        }
+        function audio() {
+            window.location.href = "./index2";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Encryption/Decryption</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 270px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 24px;
+            color: #0056b3;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .encrypt .section {
+            background-color: #66bb6a;
+        }
+
+        .decrypt .section {
+            background-color: #ef5350;
+        }
+
+        .encrypt button[type="submit"] {
+            background-color: #4caf50;
+        }
+
+        .decrypt button[type="submit"] {
+            background-color: #f44336;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Encryption/Decryption</h1>
+
+    <div class="container">
+        <div class="left-section encrypt">
+            <div class="section">
+                <h2>Encrypt Image</h2>
+                <form action="/encrypt_image" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <button type="submit">Encrypt Image</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-section decrypt">
+            <div class="section">
+                <h2>Decrypt Image</h2>
+                <form action="/decrypt_image" method="post" enctype="multipart/form-data">
+                    <input type="file" name="image" accept="image/*" required>
+                    <input type="text" name="key" placeholder="Enter encryption key" required>
+                    <button type="submit">Decrypt Image</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

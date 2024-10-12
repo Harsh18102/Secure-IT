@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypted Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5f86af; /* Blue background */
+            color: #333; /* Dark text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            background-color: #add8e6; /* Light blue */
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: calc(50% - 20px); /* Adjust width */
+            box-sizing: border-box;
+            margin-bottom: 20px; /* Adjust margin */
+        }
+
+        h1 {
+            font-size: 42px; /* Larger font size */
+            margin-bottom: 20px;
+            font-style: italic; /* Italic font style */
+        }
+
+        p {
+            font-size: 20px; /* Larger font size */
+            margin-bottom: 10px;
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .key {
+            font-weight: normal; /* Normal font weight */
+            color: #ff6600; /* Orange color */
+        }
+
+        button {
+            background-color: #fff;
+            color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px; /* Adjusted font size */
+            }
+
+            p {
+                font-size: 18px; /* Adjusted font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Encrypted Text</h1>
+        <div class="content">
+            <div class="box">
+                <p><span class="key">Key:</span> {{ key }}</p>
+                <button onclick="copyToClipboard('{{ key }}')">COPY</button>
+            </div>
+            <div class="box">
+                <p><span class="key">Encrypted Message:</span> {{ encrypted }}</p>
+                <button onclick="copyToClipboard('{{ encrypted }}')">COPY</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => alert("Copied to clipboard"))
+                .catch((err) => console.error('Failed to copy: ', err));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypted Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5f86af; /* Blue background */
+            color: #333; /* Dark text */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #add8e6; /* Light blue */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px; /* Adjust margin */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        h1 {
+            font-size: 36px; /* Larger font size */
+            margin-bottom: 20px;
+            font-style: italic; /* Italic font style */
+        }
+
+        p {
+            font-size: 18px; /* Larger font size */
+            margin-bottom: 10px;
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .key {
+            font-weight: normal; /* Normal font weight */
+            color: #ff6600; /* Orange color */
+        }
+
+        button {
+            background-color: #fff;
+            color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Decrypted Text</h1>
+        <div class="box">
+            <p>{{ decrypt }}</p>
+        </div>
+    </div>
+</body>
+</html>

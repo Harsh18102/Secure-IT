@@ -1,0 +1,7 @@
+def load_key():
+    try:
+        with open('mykey.key', 'rb') as mykey:
+            key = mykey.read()
+        return key
+    except FileNotFoundError:
+        return None

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Encryption/Decryption</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3f4c6b, #606c88); /* Gradient background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .left-section,
+        .right-section {
+            flex: 1;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: 270px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0056b3;
+            font-size: 24px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .encrypt .section {
+            background-color: #66bb6a;
+        }
+
+        .decrypt .section {
+            background-color: #ef5350;
+        }
+
+        .encrypt button[type="submit"] {
+            background-color: #4caf50;
+        }
+
+        .decrypt button[type="submit"] {
+            background-color: #f44336;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Encryption/Decryption</h1>
+
+    <div class="container">
+        <div class="left-section encrypt">
+            <div class="section">
+                <h2>Encrypt Audio</h2>
+                <form action="/encrypt_audio" method="post" enctype="multipart/form-data">
+                    <input type="file" name="audio" accept="audio/*" required>
+                    <button type="submit">Encrypt Audio</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-section decrypt">
+            <div class="section">
+                <h2>Decrypt Audio</h2>
+                <form action="/decrypt_audio" method="post" enctype="multipart/form-data">
+                    <input type="file" name="audio" accept="audio/*" required>
+                    <input type="text" name="key" placeholder="Enter encryption key" required>
+                    <button type="submit">Decrypt Audio</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

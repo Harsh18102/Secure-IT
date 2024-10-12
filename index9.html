@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Password Generator</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0e9f1; /* Light blue background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #f4f7f9; /* Lighter blue container background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 600px; /* Increased width to accommodate two sections */
+            text-align: center;
+        }
+        .left-section, .right-section {
+            display: inline-block;
+            vertical-align: top;
+            width: 45%; /* Adjusted width to accommodate two sections side by side */
+            margin-top: 20px;
+        }
+        h1 {
+            color: #007bff; /* Dark blue heading color */
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 32px; /* Increased font size */
+        }
+        #password {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 24px); /* Adjusted width */
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0056b3; /* Dark blue button color */
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        button.copy {
+            background-color: #4CAF50; /* Green button color */
+        }
+        button:hover {
+            background-color: #004080; /* Darker blue on hover */
+        }
+        p {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 20px;
+            text-align: left; /* Aligning text left */
+        }
+        ul {
+            list-style-type: disc; /* Changing list style */
+            padding-left: 20px; /* Adding left padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Strong Password Generator</h1>
+        <div class="left-section">
+            <input type="text" id="password" value="{{ password }}" readonly>
+            <button onclick="generatePassword()">Generate New Password</button>
+            <button class="copy" onclick="copyPassword()">Copy</button>
+        </div>
+        <div class="right-section">
+            <p style="font-size: larger;">Strong passwords are crucial for securing your accounts and sensitive information. Generate a new password whenever you need one! Remember, the more complex your password, the harder it is for hackers to crack!</p>
+        </div>
+    </div>
+
+    <script>
+        function generatePassword() {
+            var passwordField = document.getElementById('password');
+            window.location.reload();
+        }
+
+        function copyPassword() {
+            var passwordField = document.getElementById('password');
+            passwordField.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>
