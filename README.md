@@ -20,17 +20,17 @@ Requirements
   Cryptography library (Fernet encryption)
   AES (Advanced Encryption Standard)
 
-  Project Structure
+Project Structure
 
 Secure-IT/
 │
-├── app.py                            # Main Flask application
-├── mykey.key                          # Encryption key file
-├── def load_key().txt                 # Function to load encryption key
+├── app.py                   # Main Flask application
+├── mykey.key                # Encryption key file
+├── def_load_key().txt        # Function to load encryption key
 │
-├── templates/                         # HTML files for the frontend
-│   ├── about.html                     
-│   ├── choose.html                 
+├── templates/                # HTML files for the frontend
+│   ├── about.html
+│   ├── choose.html
 │   ├── decrypt.html
 │   ├── encrypt_text.html
 │   ├── home.html
@@ -40,9 +40,10 @@ Secure-IT/
 │   ├── index3.html
 │   ├── index4.html
 │   ├── index9.html
-│   └── passwordstr.html         
+│   └── passwordstr.html
 │
-└── uploads/                           # Directory where uploaded files are stored
+└── uploads/                  # Directory where uploaded files are stored
+
 
 For questions or support, please reach out at:
   Email: gharsh1810@gmail.com
